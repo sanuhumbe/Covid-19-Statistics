@@ -201,14 +201,47 @@ export default function EnhancedTable(props) {
       <CardGroup {...props} setParams={{ worldStatus }} />
 
       <div style={{ padding: "15px 0" }}>
-        <span>Map</span>
-        <IconButton aria-label="Glob" onClick={() => setTable(false)}>
-          <PublicOutlinedIcon />
-        </IconButton>
-        <IconButton aria-label="Table" onClick={() => setTable(true)}>
-          <AppsOutlinedIcon />
-        </IconButton>
-        <span>Table</span>
+        <Grid container justify="center" alignItems="center">
+          <Grid item lg={3} md={3} sm={3} xs={3}>
+            <Paper style={{ padding: "10px 0" }}>
+              <Button
+                disabled={!table}
+                onClick={() => setTable(false)}
+                color="default"
+                endIcon={<PublicOutlinedIcon />}
+              >
+                Map
+              </Button>
+              <span
+                style={{
+                  borderLeft: "1px solid #555",
+                  height: "100%",
+                  padding: "5px 20px 10px 0px",
+                  marginLeft: "20px",
+                }}
+              ></span>
+              <Button
+                disabled={table}
+                onClick={() => setTable(true)}
+                color="default"
+                startIcon={<AppsOutlinedIcon />}
+              >
+                Table
+              </Button>
+              {/* <IconButton aria-label="Glob" onClick={() => setTable(false)}>
+                <PublicOutlinedIcon />
+              </IconButton>
+              <span
+                style={{ borderLeft: "2px solid #333", height: "1400px" }}
+                //   border-left: 6px solid green;
+                //   height: 500px
+              ></span>
+              <IconButton aria-label="Table" onClick={() => setTable(true)}>
+                <AppsOutlinedIcon />
+              </IconButton> */}
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
 
       {table === true ? (
